@@ -30,7 +30,7 @@ class User < ApplicationRecord
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?
-    
+
     user.is_password?(password) ? user : nil
   end
 end
