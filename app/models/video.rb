@@ -6,7 +6,7 @@ class Video < ApplicationRecord
   belongs_to :user
 
   def ensure_url
-    # TODO: Add way to create new random URL
+    self.URL ||= SecureRandom.uuid
   end
 
   def ensure_video_statistics
