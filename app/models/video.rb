@@ -4,9 +4,10 @@ class Video < ApplicationRecord
   after_initialize :ensure_url, :ensure_video_statistics
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
 
   def ensure_url
-    self.URL ||= SecureRandom.uuid
+    self.URL ||= SecureRandom.hex
   end
 
   def ensure_video_statistics
